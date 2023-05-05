@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\gig;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GigController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,19 +16,7 @@ class GigController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $admin = false;
-
-     $gigs = Gig::all();
-
-    if ($user != null) {
-        if ($user->isAdmin) {
-          $admin = true;
-        $gigs = Gig::where('user_id', '=', $user->id)->get();
-        }
-    }
-
-return view('discover', ['gigs' => $gigs, 'admin' => $admin]);
+        //
     }
 
     /**
@@ -37,7 +26,7 @@ return view('discover', ['gigs' => $gigs, 'admin' => $admin]);
      */
     public function create()
     {
-        return view('addGig');
+        return view('addBooking');
     }
 
     /**
@@ -48,28 +37,26 @@ return view('discover', ['gigs' => $gigs, 'admin' => $admin]);
      */
     public function store(Request $request)
     {
-        // get the filename of image uploaded
-        $filename = $request->img->getClientOriginalName();
-        // store in public folder
-        $request->img->move(public_path('img'), $filename);
-        $product = Gig::create([
-        'performer_name' => $request['performer_name'],
-        'price' => $request['gig_price'],
-        'description' => $request['description'],
-        'gig_type' => $request['gig_type'],
-        'img' => $filename,
-        'user_id' => Auth::id()
-]);
-return redirect('discover');
+        $booking = Booking::create([
+            'performer_name' => $request['performer_name'],
+            'client_name' => $request['client_name'],
+            'client_email' => $request['client_email'],
+            'phone' => $request['client_phone'],
+            'gig_location' => $request['gig_location'],
+            'gig_type' => $request['gig_type'],
+            'date' => $request['gig_date'],
+            'user_id' => Auth::id()
+        ]);
+        return redirect('discover');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(gig $gig)
+    public function show(Booking $booking)
     {
         //
     }
@@ -77,10 +64,10 @@ return redirect('discover');
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(gig $gig)
+    public function edit(Booking $booking)
     {
         //
     }
@@ -89,10 +76,10 @@ return redirect('discover');
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, gig $gig)
+    public function update(Request $request, Booking $booking)
     {
         //
     }
@@ -100,10 +87,10 @@ return redirect('discover');
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(gig $gig)
+    public function destroy(Booking $booking)
     {
         //
     }

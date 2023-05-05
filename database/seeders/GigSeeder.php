@@ -19,7 +19,7 @@ class GigSeeder extends Seeder
             [
             'user_id' => 1,
             'performer_name' => "Parokya ni Bongat",
-            'date' => '2023-05-06',
+            'description' => 'We are the best rock band in Naga City.',
             'price' => 2500,
             'gig_type' => "band",
             'img' => 'band1.jpeg'

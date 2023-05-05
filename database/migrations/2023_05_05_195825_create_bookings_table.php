@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGigsTable extends Migration
+class CreateBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateGigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gigs', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('performer_name');
-            $table->longText('description')->nullable;
-            $table->float('price');
-            $table->string('gig_type');
-            $table->string('img');
+            $table->unsignedBigInteger("user_id");
+            $table->string("performer_name");
+            $table->string("client_name");
+            $table->string("client_email");
+            $table->string("gig_location");
+            $table->string("gig_type");
+            $table->date("date");
+            $table->string("phone");
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
@@ -34,6 +36,6 @@ class CreateGigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gigs');
+        Schema::dropIfExists('bookings');
     }
 }

@@ -11,6 +11,6 @@
     <button class="btn-dark-green text-white text-uppercase border-0
     py-2 px-4">Add Performer</button>
     </a>
-    @endif
+@endif
 </x-gig>
 @endsection

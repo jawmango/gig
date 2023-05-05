@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class gig extends Model
+class Booking extends Model
 {
     use HasFactory;
     protected $fillable = [
         "user_id",
         "performer_name",
-        "description",
+        "client_name",
+        "client_email",
+        "phone",
+        "gig_location",
         "gig_type",
-        "price",
-        "img"
+        "date",
         ];
 }

@@ -13,6 +13,7 @@ class gig extends Component
      */
     public $gigs;
     public $admin;
+    
     public function __construct($gigs, $admin)
     {
     $this->gigs = $gigs;

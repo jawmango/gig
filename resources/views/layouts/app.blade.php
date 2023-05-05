@@ -36,8 +36,8 @@
                     <ul class="navbar-nav ms-auto">
                     <li class="nav-item "><a href="/" class="nav-link {{request()->is('/') ? 'active' : ''}}">Home</a></li>
                     <li class="nav-item "><a href="/discover" class="nav-link {{request()->is('discover') ? 'active' : ''}}">Discover</a></li>
-                    <li class="nav-item "><a href="#" class="nav-link {{request()->is('about') ? 'active' : ''}}">About</a></li>
-                    <li class="nav-item "><a href="#" class="nav-link {{request()->is('profile') ? 'active' : ''}}">Profile</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link {{request()->is('about') ? 'active' : ''}}">Booking</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link {{request()->is('profile') ? 'active' : ''}}">About</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

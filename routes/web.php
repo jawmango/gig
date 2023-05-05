@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GigController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,6 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/discover', [GigController::class, 'index'])->name('discover');
 Route::get('/discover/add', [GigController::class, 'create'])->name('add');
-Route::post('/discover/store', [ProductController::class, 'store'])->name('store');
+Route::post('/discover/store', [GigController::class, 'store'])->name('store');
+Route::get('/discover/addBooking', [BookingController::class, 'create'])->name('addBooking');
+Route::post('/discover/storeBooking', [BookingController::class, 'store'])->name('storeBooking');

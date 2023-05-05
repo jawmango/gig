@@ -12,9 +12,10 @@ alt="...">
 <div class="card-body">
 <h4 class="card-title">{{$gigs['performer_name']}}</h4>
 <p class="card-text">P{{$gigs['price']}}</p>
-<p class="card-text">{{$gigs['date']}}</p>
+<p class="card-text">{{$gigs['description']}}</p>
 <p class="card-text">{{$gigs['gig_type']}}</p>
-<a href="#" class="btn-dark-green text-decoration-none">Book Now</a>
+
+<a href="/discover/addBooking" class="btn-dark-green text-decoration-none">Book Now</a>
 </div>
 </div>
 @endforeach

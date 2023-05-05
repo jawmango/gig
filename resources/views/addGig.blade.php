@@ -4,7 +4,7 @@
 <div class="container-fluid p-5">
 <div class="col-4 mx-auto p-4 border border-success border-2">
 <h4 class="text-uppercase text-center">Add Performer</h4>
-<form method="POST" action="" enctype="multipart/form-data">
+<form method="POST" action="{{route('store')}}" enctype="multipart/form-data">
 @csrf
 <div class="row mb-2">
 <div class="col-sm-12">
@@ -40,12 +40,12 @@ type="text" placeholder="Enter Fee" value="{{ old('gig_price')
 <div class="row mb-2">
 <div class="col-sm-12">
 <div class="form-group">
-<label for="gig_date">Performance Date</label>
-<input class="form-control @error('gig_date')
-is-invalid @enderror" required id="gig_date" name="gig_date"
-type="text" placeholder="Enter Date" value="{{ old('gig_date')
+<label for="description">Description</label>
+<input class="form-control @error('description')
+is-invalid @enderror" required id="description" name="description"
+type="text" placeholder="Enter Description" value="{{ old('description')
 }}">
-@error('gig_date')
+@error('description')
 <span class="invalid-feedback" role="alert">
 <strong>{{ $message }}</strong>
 </span>
