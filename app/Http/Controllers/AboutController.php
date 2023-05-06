@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Booking;
-use App\Models\gig;
+use App\Models\About;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class BookingController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        
+        return view('about');
     }
 
     /**
@@ -26,7 +24,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view('addBooking');
+        //
     }
 
     /**
@@ -37,39 +35,27 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $booking = Booking::create([
-            'performer_name' => $request['performer_name'],
-            'client_name' => $request['client_name'],
-            'client_email' => $request['client_email'],
-            'phone' => $request['client_phone'],
-            'gig_location' => $request['gig_location'],
-            'gig_type' => $request['gig_type'],
-            'date' => $request['gig_date'],
-            'user_id' => Auth::id()
-        ]);
-        return redirect('discover');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function show(Booking $booking)
+    public function show(About $about)
     {
-        
-        $data = Booking::all();
-        return view('booking', ['bookings'=>$data]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booking $booking)
+    public function edit(About $about)
     {
         //
     }
@@ -78,10 +64,10 @@ class BookingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, About $about)
     {
         //
     }
@@ -89,10 +75,10 @@ class BookingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy(About $about)
     {
         //
     }

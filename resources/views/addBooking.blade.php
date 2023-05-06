@@ -119,7 +119,7 @@ type="text" placeholder="Enter Type" value="{{ old('gig_type')
 <!-- /.row-->
 
 <div class=" mt-5">
-<button class="btn-dark-green ">Book Now</button>
+<button class="btn ">Book Now</button>
 </div>
 </form>
 </div>

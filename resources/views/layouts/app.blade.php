@@ -11,11 +11,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" charset="utf-8"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -36,8 +39,8 @@
                     <ul class="navbar-nav ms-auto">
                     <li class="nav-item "><a href="/" class="nav-link {{request()->is('/') ? 'active' : ''}}">Home</a></li>
                     <li class="nav-item "><a href="/discover" class="nav-link {{request()->is('discover') ? 'active' : ''}}">Discover</a></li>
-                    <li class="nav-item "><a href="#" class="nav-link {{request()->is('about') ? 'active' : ''}}">Booking</a></li>
-                    <li class="nav-item "><a href="#" class="nav-link {{request()->is('profile') ? 'active' : ''}}">About</a></li>
+                    <li class="nav-item "><a href="/booking" class="nav-link {{request()->is('booking') ? 'active' : ''}}">Booking</a></li>
+                    <li class="nav-item "><a href="/about" class="nav-link {{request()->is('about') ? 'active' : ''}}">About</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

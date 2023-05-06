@@ -8,7 +8,7 @@
 <x-gig :gigs="$gigs" :admin="$admin">
     @if($admin)
     <a href="/discover/add">
-    <button class="btn-dark-green text-white text-uppercase border-0
+    <button class="btn text-white text-uppercase border-0
     py-2 px-4">Add Performer</button>
     </a>
 @endif

@@ -15,7 +15,7 @@ alt="...">
 <p class="card-text">{{$gigs['description']}}</p>
 <p class="card-text">{{$gigs['gig_type']}}</p>
 
-<a href="/discover/addBooking" class="btn-dark-green text-decoration-none">Book Now</a>
+<a href="/discover/addBooking" class="btn text-decoration-none">Book Now</a>
 </div>
 </div>
 @endforeach
