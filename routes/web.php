@@ -30,8 +30,8 @@ Route::get('/booking', [BookingController::class, 'show'])->name('show');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/discover/edit/{id}', [GigController::class, 'edit'])->name('edit');
 Route::post('/discover/update/{id}', [GigController::class, 'update'])->name('update');
-Route::delete('/booking/delete/{id}', [BookingController::class, 'destroy'])->name('delete');
+Route::delete('/booking/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
 Route::get('/discover/addP', [PerformerController::class, 'create'])->name('addP');
 Route::post('/discover/storeP', [PerformerController::class, 'store'])->name('storeP');
+Route::get('/action', [GigController::class, 'action'])->name('action');
 Route::delete('/discover/delete/{id}', [GigController::class, 'destroy'])->name('delete');
-

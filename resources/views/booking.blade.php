@@ -1,71 +1,100 @@
 @extends('layouts.app')
+
 @section('content')
-<br>
+
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Search</div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" name="search" id="search" class="form-control" placeholder="Search Performer Name \ Gig Type \ Price" />
+<br>
+    <h1>User Bookings</h1>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Search</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Search Performer Name \ Gig Type \ Price" />
+                            </div>
+                        </form>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="gig-table">
+                                <thead>
+                                    <tr>
+                                        <th>Performer Name</th>
+                                        <th>Gig Type</th>
+                                        <th>Price</th>
+                                        <th>Book</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
-                    </form>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Performer Name</th>
-                                    <th>Gig Type</th>
-                                    <th>Price</th>
-                                    <th>Book</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class = "container">
-<br>
-<h1>User Bookings</h1>
 
-<table class = "table">
+<div class="container">
+    <br>
+    <h1>Booked Performers</h1>
+
+    <table class="table" id="bookings-table">
+        <tr>
+            <td>Performer Name</td>
+            <td>Gig Date</td>
+            <td>Gig Location</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+
+@foreach($bookings as $booking)
     <tr>
-        <td>User_ID</td>
-        <td>Performer Name</td>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Phone</td>
-        <td>Gig Location</td>
-        <td>Gig Type</td>
-        <td>Gig Date</td>
-        
-    @foreach($bookings as $booking)
-    <tr>
-        <td>{{$booking['user_id']}}</td>
-        <td>{{$booking['performer_name']}}</td>
-        <td>{{$booking['client_name']}}</td>
-        <td>{{$booking['client_email']}}</td>
-        <td>{{$booking['phone']}}</td>
-        <td>{{$booking['gig_location']}}</td>
-        <td>{{$booking['gig_type']}}</td>
-        <td>{{$booking['date']}}</td>
+        <td>{{$booking->performer_name}}</td>
+        <td>{{$booking->date}}</td>
+        <td>{{$booking->gig_location}}</td>
+        <td>{{$booking->client_name}}</td>
+        <td>{{$booking->client_email}}</td>
+        <td>{{$booking->phone}}</td>
         <td>
-                <form method="POST" action="{{ route('delete', $booking->id) }}" class="delete-form">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this booking?')">Delete</button>
-                </form>
-            </td>
+            <form action="{{ route('booking.destroy', $booking->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure you want to delete this booking?')">Cancel</button>
+            </form>
+        </td>
     </tr>
-    
-    @endforeach
-</table>
+@endforeach
+        </table>
+    </div>
+</div>
+@endsection
 
+@section('javascript')
+<script>
+$(document).ready(function() {
+    fetch_gig_data();
+
+    function fetch_gig_data(query = '') {
+        $.ajax({
+            url: "{{ route('action') }}",
+            method: 'GET',
+            data: {
+                query: query
+            },
+            dataType: 'json',
+            success: function(data) {
+                $('#gig-table tbody').html(data.table_data);
+                $('#total_records').text(data.total_data);
+            }
+        });
+    }
+
+    $(document).on('keyup', '#search', function() {
+        var query = $(this).val();
+        fetch_gig_data(query);
+    });
+
+});
+</script>
 @endsection

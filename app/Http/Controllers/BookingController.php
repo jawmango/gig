@@ -28,7 +28,7 @@ class BookingController extends Controller
     {
         $performer_name = $request->input('performer_name');
         return view('addBooking', ['performer_name' => $performer_name]);
-    }
+    }   
 
     /**
      * Store a newly created resource in storage.
@@ -44,7 +44,6 @@ class BookingController extends Controller
             'client_email' => $request['client_email'],
             'phone' => $request['client_phone'],
             'gig_location' => $request['gig_location'],
-            'gig_type' => $request['gig_type'],
             'date' => $request['gig_date'],
             'user_id' => Auth::id()
         ]);
@@ -59,15 +58,17 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        if (auth()->check()) {
+        if (Auth::check()) {
             $user_id = auth()->user()->id; // retrieve the authenticated user ID
+    
             $data = Booking::where('user_id', $user_id)->get(); // retrieve bookings for the user
+    
             return view('booking', ['bookings'=>$data]);
         } else {
-            return redirect()->route('login'); // redirect guest users to the login page
+            // Redirect the user to the login page or show an error message
+            return redirect('login');
         }
     }
-    
 
     /**
      * Show the form for editing the specified resource.

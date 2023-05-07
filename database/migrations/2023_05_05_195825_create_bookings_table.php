@@ -20,7 +20,6 @@ class CreateBookingsTable extends Migration
             $table->string("client_name");
             $table->string("client_email");
             $table->string("gig_location");
-            $table->string("gig_type");
             $table->date("date");
             $table->string("phone");
             $table->timestamps();
@@ -28,6 +27,7 @@ class CreateBookingsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
+    
 
     /**
      * Reverse the migrations.

@@ -29,9 +29,9 @@ with each other with ease.
           <div class="p-name">Jericho James Obiedo</div>
           <div class="p-des">Developer</div>
           <div class="p-sm">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/Jericho.obiedo/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/JerichoJames_"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/echoobiedo/"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
 
@@ -40,7 +40,7 @@ with each other with ease.
           <div class="p-name">Kryslone Dave Perez</div>
           <div class="p-des">Developer</div>
           <div class="p-sm">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/kryslonedave.perez.7"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
@@ -51,9 +51,9 @@ with each other with ease.
           <div class="p-name">John Rodick Bongat</div>
           <div class="p-des">Designer</div>
           <div class="p-sm">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/jrodbongat"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/jrodbongat"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/jrodbongat/"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
 

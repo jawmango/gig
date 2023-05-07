@@ -124,7 +124,6 @@ return redirect('discover');
 
         $gig->delete();
         return redirect("discover");
-
     }
 
     public function ratings()
@@ -133,5 +132,50 @@ return redirect('discover');
 }
 
 
+public function action(Request $request)
+{
+if($request->ajax())
+{
+    $output = '';
+    $query = $request->get('query');
+    if($query != '')
+    {
+        $gig = Gig::where('performer_name', 'LIKE', '%'.$query.'%')
+        ->orwhere('gig_type', 'LIKE', '%'.$query.'%')
+        ->orwhere('price', 'LIKE', '%'.$query.'%')->get();
+    }
+    else
+    {
+        $gig = Gig::all();
+    }
+    $total_row = $gig->count();
+    if($total_row > 0)
+    {
+        foreach($gig as $gigs)
+        {
+            $output .= '
+            <tr>
+                <td>'.$gigs->performer_name.'</td>
+                <td>'.$gigs->gig_type.'</td>
+                <td>'.$gigs->price.'</td>
+                <td><a href="/discover/addBooking?performer_name='.$gigs->performer_name.'" class="btn text-decoration-none">Book Now</a></td>
+            </tr>';
+        }
+    }
+    else
+    {
+        $output = '
+        <tr>
+            <td align="center" colspan="5">No Data Found</td>
+        </tr>';
+    }
+    $data = array(
+        'table_data'  => $output,
+        'total_data'  => $total_row
+    );
+
+    echo json_encode($data);
+}
+}
 
 }

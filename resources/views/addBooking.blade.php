@@ -95,25 +95,6 @@ type="text" placeholder="Enter location" value="{{ old('gig_location')
 <strong>{{ $message }}</strong>
 </span>
 @enderror
-</div>
-</div>
-</div>
-<div class="row mb-2">
-<div class="col-sm-12">
-<div class="form-group">
-<label for="gig_type">Performer Type (e.g band, solo, etc.)</label>
-<input class="form-control @error('gig_type')
-is-invalid @enderror" required id="gig_type" name="gig_type"
-type="text" placeholder="Enter Type" value="{{ old('gig_type')
-}}">
-@error('gig_type')
-<span class="invalid-feedback" role="alert">
-<strong>{{ $message }}</strong>
-</span>
-@enderror
-</div>
-</div>
-</div>
 <!-- /.row-->
 
 <div class=" mt-5">
