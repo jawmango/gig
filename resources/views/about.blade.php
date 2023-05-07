@@ -5,15 +5,15 @@
         <div class="inner-container">
             <h1>About Us</h1>
             <p class="text">
-            GigLeague is a web-based music performance booking platform that will be developed to assist
+            GigLeague is a web-based music performance booking platform that is developed to assist
 music performers find events in which they can perform and at the same time help clients find music
 performers that they can book to their events. The website will allow artists and clients to communicate
 with each other with ease.
             </p>
             <div class="skills">
-                <span>Contact</span>
-                <span>Email: gigleague@gmail.com</span>
-                <span>Number: 09231248121</span>
+                <span><i class="fas fa-user"></i> Contact</span>
+                <span><i class="fas fa-envelope"></i> gigleague@gmail.com</span>
+                <span><i class="fas fa-phone"></i> 09231248121</span>
             </div>
         </div>
     </div>

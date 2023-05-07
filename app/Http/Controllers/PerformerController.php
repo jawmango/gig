@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\gig;
+use App\Models\Performer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GigController extends Controller
+class PerformerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,19 +15,7 @@ class GigController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $admin = false;
-
-     $gigs = Gig::all();
-
-    if ($user != null) {
-        if ($user->isAdmin) {
-          $admin = true;
-        $gigs = Gig::where('user_id', '=', $user->id)->get();
-        }
-    }
-
-return view('discover', ['gigs' => $gigs, 'admin' => $admin]);
+        //
     }
 
     /**
@@ -37,7 +25,7 @@ return view('discover', ['gigs' => $gigs, 'admin' => $admin]);
      */
     public function create()
     {
-        return view('addGig');
+        return view('addPerformer');
     }
 
     /**
@@ -52,7 +40,7 @@ return view('discover', ['gigs' => $gigs, 'admin' => $admin]);
         $filename = $request->img->getClientOriginalName();
         // store in public folder
         $request->img->move(public_path('img'), $filename);
-        $gig = Gig::create([
+        $performer = Performer::create([
         'performer_name' => $request['performer_name'],
         'price' => $request['gig_price'],
         'description' => $request['description'],
@@ -66,10 +54,10 @@ return redirect('discover');
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Performer  $performer
      * @return \Illuminate\Http\Response
      */
-    public function show(gig $gig)
+    public function show(Performer $performer)
     {
         //
     }
@@ -77,54 +65,34 @@ return redirect('discover');
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Performer  $performer
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Performer $performer)
     {
-        $gig = Gig::find($id);
-        return view('editGig', ['gig' => $gig]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Performer  $performer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, gig $gig)
+    public function update(Request $request, Performer $performer)
     {
-        $product = Gig::find($id);
-        if ($request->hasFile('img')) {
-            $filename = $request->photo->getClientOriginalName();
-            $request->img->move(public_path('img'), $filename);
-        } else {
-            $filename = $gig->img;
-        }
-        $gig->performer_name = $request->performer_name;
-        $gig->price = $request->gig_price;
-        $gig->description = $request->description;
-        $gig->gig_type = $request->gig_type;
-        $gig->img = $filename;
-        $gig->save();
-        return redirect("discover");
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\gig  $gig
+     * @param  \App\Models\Performer  $performer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(gig $gig)
+    public function destroy(Performer $performer)
     {
         //
     }
-
-    public function ratings()
-{
-    return $this->hasMany(Rating::class);
-}
-
 }

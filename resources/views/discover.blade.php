@@ -11,6 +11,11 @@
     <button class="btn text-white text-uppercase border-0
     py-2 px-4">Add Performer</button>
     </a>
+    @else
+    <a href="/discover/addP">
+    <button class="btn text-white text-uppercase border-0
+    py-2 px-4">Apply as Performer</button>
+    </a>
 @endif
 </x-gig>
 @endsection

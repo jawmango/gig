@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GigController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\PerformerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,8 @@ Route::get('/discover/addBooking', [BookingController::class, 'create'])->name('
 Route::post('/discover/storeBooking', [BookingController::class, 'store'])->name('storeBooking');
 Route::get('/booking', [BookingController::class, 'show'])->name('show');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/discover/edit/{id}', [GigController::class, 'edit'])->name('edit');
+Route::post('/discover/update/{id}', [ProductController::class, 'update'])->name('update');
+Route::delete('/booking/delete/{id}', [BookingController::class, 'destroy'])->name('delete');
+Route::get('/discover/addP', [PerformerController::class, 'create'])->name('addP');
+Route::post('/discover/storeP', [PerformerController::class, 'store'])->name('storeP');

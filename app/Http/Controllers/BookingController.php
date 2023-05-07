@@ -59,7 +59,10 @@ class BookingController extends Controller
     public function show(Booking $booking)
     {
         
-        $data = Booking::all();
+        $user_id = auth()->user()->id; // retrieve the authenticated user ID
+    
+        $data = Booking::where('user_id', $user_id)->get(); // retrieve bookings for the user
+    
         return view('booking', ['bookings'=>$data]);
     }
 
@@ -92,8 +95,10 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
-        //
+        $booking = Booking::findOrFail($id); // find the booking by ID
+    $booking->delete(); // delete the booking
+    return redirect("booking");
     }
 }

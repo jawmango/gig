@@ -13,7 +13,7 @@
 
 <div class="why-section">
         <div class="inner-container">
-            <h1>Why Gigleague?</h1>
+            <h1>Why GigLeague?</h1>
             <p class="text">
             The purpose of GigLeague is to create a web-based music performance booking platform that
 connects music artists and clients in Naga City. The website is designed to assist music performers in
@@ -22,9 +22,9 @@ their events. The platform aims to make the booking process seamless by allowing
 accounts and communicate with each other with ease.
             </p>
             <div class="skills">
-                <span>Music Performers</span>
-                <span>Clients</span>
-                <span>Booking</span>
+                <span><i class="fas fa-guitar"></i> Music Performers</span>
+                <span><i class="fas fa-user"></i> Clients</span>
+                <span><i class="fas fa-book"></i> Booking</span>
             </div>
         </div>
     </div>

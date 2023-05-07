@@ -58,7 +58,7 @@ nav{
 .why-section{
   background: url("../img/pic3.jpeg") no-repeat left;
   background-size: 55%;
-  background-color: #fdfdfd;
+  background-color: #141414;
   overflow: hidden;
   padding: 100px 0;
 }
@@ -253,3 +253,4 @@ nav{
     width: 36px;
     background: #8C52FF !important;
   }
+

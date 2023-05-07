@@ -27,6 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
+                
                 <a class="navbar-brand fw-bold" href="{{ url('/') }}">
                     GigLeague
                 </a>
