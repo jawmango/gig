@@ -6,16 +6,17 @@
     </div>
 </div>
 <x-gig :gigs="$gigs" :admin="$admin">
-    @if($admin)
-    <a href="/discover/add">
-    <button class="btn text-white text-uppercase border-0
-    py-2 px-4">Add Performer</button>
-    </a>
-    @else
+@if(auth()->user() && !($admin))
     <a href="/discover/addP">
     <button class="btn text-white text-uppercase border-0
     py-2 px-4">Apply as Performer</button>
     </a>
+    @elseif($admin)
+    <a href="/discover/add">
+    <button class="btn text-white text-uppercase border-0
+    py-2 px-4">Add Performer</button>
+    </a>
+    
 @endif
 </x-gig>
 @endsection

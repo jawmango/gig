@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
 <div class="col-10 mx-auto">
-<h1 class="text-center">Featured Performers</h1>
+<h1 class="text-center">GigLeague Performers</h1>
 <div class="text-center my-4">
 {{$slot}}
 </div>

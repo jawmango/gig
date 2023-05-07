@@ -5,6 +5,16 @@
 <h1>User Bookings</h1>
 
 <table class = "table">
+    <tr>
+        <td>User_ID</td>
+        <td>Performer Name</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Gig Location</td>
+        <td>Gig Type</td>
+        <td>Gig Date</td>
+        
     @foreach($bookings as $booking)
     <tr>
         <td>{{$booking['user_id']}}</td>
