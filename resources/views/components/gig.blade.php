@@ -16,12 +16,18 @@ alt="...">
 <p class="card-text">Type: {{$gigs['gig_type']}}</p>
 
 @if(auth()->user() && !($admin))
-                            <a href="/discover/addBooking" class="btn text-decoration-none">Book Now</a>
+<a href="/discover/addBooking?performer_name={{ $gigs->performer_name }}" class="btn text-decoration-none">Book Now</a>
                         @elseif(auth()->guest())
                             <a href="/login" class="btn text-decoration-none">Login to Book</a>
                         @else
+                        <div class="d-flex gap-2">
                             <a href="/discover/edit/{{$gigs['id']}}" class="btn text-decoration-none">Edit</a>
-                        @endif
+                            <form action="{{route('delete', ['id' => $gigs['id']])}}" method="post">
+                            @csrf
+                            @method("DELETE")
+                        <button type="submit" value="Delete" name="submit" class="btn btn-danger rounded-0 text-decoration-none " onclick="return confirm('Are you sure to delete?')">Delete </button></form>
+                        </div>                
+ @endif
 </div>
 </div>
 @endforeach

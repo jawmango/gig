@@ -69,6 +69,54 @@ type="text" placeholder="Enter Type" value="{{ old('gig_type')
 </div>
 </div>
 </div>
+<div class="row mb-2">
+<div class="col-sm-12">
+<div class="form-group">
+<label for="performer_phone">Phone</label>
+<input class="form-control @error('performer_phone')
+is-invalid @enderror" required id="performer_phone" name="performer_phone"
+type="text" placeholder="Enter Phone" value="{{ old('performer_phone')
+}}">
+@error('performer_phone')
+<span class="invalid-feedback" role="alert">
+<strong>{{ $message }}</strong>
+</span>
+@enderror
+</div>
+</div>
+</div>
+<div class="row mb-2">
+<div class="col-sm-12">
+<div class="form-group">
+<label for="performer_socials">Socials link(e.g, facebook link, twitter link, etc.)</label>
+<input class="form-control @error('performer_socials')
+is-invalid @enderror" required id="performer_socials" name="performer_socials"
+type="text" placeholder="Enter Socials" value="{{ old('performer_socials')
+}}">
+@error('performer_socials')
+<span class="invalid-feedback" role="alert">
+<strong>{{ $message }}</strong>
+</span>
+@enderror
+</div>
+</div>
+</div>
+<div class="row mb-2">
+<div class="col-sm-12">
+<div class="form-group">
+<label for="sampleLink">Link for Sample Performance</label>
+<input class="form-control @error('sampleLink')
+is-invalid @enderror" required id="sampleLink" name="sampleLink"
+type="text" placeholder="Enter Link" value="{{ old('sampleLink')
+}}">
+@error('sampleLink')
+<span class="invalid-feedback" role="alert">
+<strong>{{ $message }}</strong>
+</span>
+@enderror
+</div>
+</div>
+</div>
 <!-- /.row-->
 <div class="form-group">
 <label for="img">Upload Image</label>

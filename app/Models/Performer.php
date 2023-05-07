@@ -14,6 +14,9 @@ class Performer extends Model
         "description",
         "gig_type",
         "price",
+        "phone",
+        "socials",
+        "sampleLink",
         "img"
         ];
 }

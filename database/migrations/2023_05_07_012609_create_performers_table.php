@@ -20,10 +20,10 @@ class CreatePerformersTable extends Migration
             $table->longText('description')->nullable;
             $table->float('price');
             $table->string('gig_type');
-            $table->string('img');
             $table->string('phone');
             $table->string('socials');
             $table->string('sampleLink')->nullable;
+            $table->string('img');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

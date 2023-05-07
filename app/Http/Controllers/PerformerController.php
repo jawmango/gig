@@ -45,6 +45,9 @@ class PerformerController extends Controller
         'price' => $request['gig_price'],
         'description' => $request['description'],
         'gig_type' => $request['gig_type'],
+        'phone' => $request['performer_phone'],
+        'socials' => $request['performer_socials'],
+        'sampleLink' => $request['sampleLink'],
         'img' => $filename,
         'user_id' => Auth::id()
 ]);
@@ -95,4 +98,6 @@ return redirect('discover');
     {
         //
     }
+
+    
 }

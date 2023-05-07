@@ -93,9 +93,9 @@ return redirect('discover');
      * @param  \App\Models\gig  $gig
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, gig $gig)
+    public function update(Request $request, $id)
     {
-        $product = Gig::find($id);
+        $gig = Gig::find($id);
         if ($request->hasFile('img')) {
             $filename = $request->photo->getClientOriginalName();
             $request->img->move(public_path('img'), $filename);
@@ -117,14 +117,21 @@ return redirect('discover');
      * @param  \App\Models\gig  $gig
      * @return \Illuminate\Http\Response
      */
-    public function destroy(gig $gig)
+    public function destroy($id)
     {
-        //
+        $gig = Gig::find($id);
+
+
+        $gig->delete();
+        return redirect("discover");
+
     }
 
     public function ratings()
 {
     return $this->hasMany(Rating::class);
 }
+
+
 
 }

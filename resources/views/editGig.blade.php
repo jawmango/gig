@@ -90,7 +90,7 @@ id="img">
 </div>
 </div>
 <div class=" mt-5">
-<button class="btn ">Add Performer</button>
+<button class="btn ">Edit Performer</button>
 </div>
 </form>
 </div>

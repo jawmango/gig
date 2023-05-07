@@ -1,5 +1,36 @@
 @extends('layouts.app')
 @section('content')
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Search Performer Name \ Gig Type \ Price" />
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Performer Name</th>
+                                    <th>Gig Type</th>
+                                    <th>Price</th>
+                                    <th>Book</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class = "container">
 <br>
 <h1>User Bookings</h1>

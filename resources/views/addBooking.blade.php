@@ -9,15 +9,13 @@
 <div class="row mb-2">
 <div class="col-sm-12">
 <div class="form-group">
-<label for="performer_name">Performer Name</label>
-<input class="form-control @error('performer_name')
-is-invalid @enderror" required id="performer_name" name="performer_name"
-type="text" placeholder="Enter performer name" value="{{ old('performer_name') }}">
-@error('performer_name')
-<span class="invalid-feedback" role="alert">
-<strong>{{ $message }}</strong>
-</span>
-@enderror
+    <label for="performer_name">Performer Name</label>
+    <input class="form-control @error('performer_name') is-invalid @enderror" required id="performer_name" name="performer_name" type="text" placeholder="Enter performer name" value="{{ $performer_name }}" readonly>
+    @error('performer_name')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 </div>
 </div>
 </div>

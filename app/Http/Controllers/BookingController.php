@@ -24,9 +24,10 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('addBooking');
+        $performer_name = $request->input('performer_name');
+        return view('addBooking', ['performer_name' => $performer_name]);
     }
 
     /**
@@ -47,7 +48,7 @@ class BookingController extends Controller
             'date' => $request['gig_date'],
             'user_id' => Auth::id()
         ]);
-        return redirect('discover');
+        return redirect('booking');
     }
 
     /**
@@ -58,13 +59,15 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        
-        $user_id = auth()->user()->id; // retrieve the authenticated user ID
-    
-        $data = Booking::where('user_id', $user_id)->get(); // retrieve bookings for the user
-    
-        return view('booking', ['bookings'=>$data]);
+        if (auth()->check()) {
+            $user_id = auth()->user()->id; // retrieve the authenticated user ID
+            $data = Booking::where('user_id', $user_id)->get(); // retrieve bookings for the user
+            return view('booking', ['bookings'=>$data]);
+        } else {
+            return redirect()->route('login'); // redirect guest users to the login page
+        }
     }
+    
 
     /**
      * Show the form for editing the specified resource.
